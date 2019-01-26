@@ -75,4 +75,4 @@ class ViewController: UIViewController {
 // 1. Don't like the animation at the start when the app loads
 // 2. make the button only appear once the froth is back to its initial position. otherwise you can click the button as soon as it appears and it doesn't have opportunity to return
 // 3. Change the wait time so it corresponds with how much time it takes to pour a beer
-// 4. Pouring is not centred
+// 4. Pouring is not centred. it's not constrained so looks shit on iPhone 5S
