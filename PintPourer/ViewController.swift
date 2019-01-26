@@ -24,10 +24,10 @@ class ViewController: UIViewController {
         
         // tell raspberry pi to pour pint
         
-        // animation of app screen
+        // animation of app screen: 3 rectangles grow, button disappears
         animateGrow()
         
-        // make the button unresponsive for a period of time so that clicking won't trigger an action
+        // reset back to original layout - make rectangles back to original size. button appear. text appear
         
     }
     

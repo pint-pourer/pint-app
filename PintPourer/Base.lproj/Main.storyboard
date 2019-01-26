@@ -27,23 +27,23 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-xZ-jOx" userLabel="3Rectangles">
-                                <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="268" width="320" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-kx-Fxy">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="300"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.6705882352941176" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jth-qN-h2e">
-                                        <rect key="frame" x="106.5" y="0.0" width="107" height="200"/>
+                                        <rect key="frame" x="106.5" y="0.0" width="107" height="300"/>
                                         <color key="backgroundColor" red="0.95686274509803915" green="0.55686274509803924" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-7c-18Y">
-                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="200"/>
+                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="300"/>
                                         <color key="backgroundColor" red="0.88235294117647056" green="0.39215686274509803" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="XXG-pN-eHq"/>
+                                    <constraint firstAttribute="height" constant="300" id="XXG-pN-eHq"/>
                                 </constraints>
                             </stackView>
                         </subviews>
