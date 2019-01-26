@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         
         // set background colour: self.view.backgroundColor = Color Literal
         self.view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.7254901961, blue: 0.462745098, alpha: 1)
+        
+        initialiseApp()
     }
 
     // function for when Pour button is pressed
@@ -24,17 +26,25 @@ class ViewController: UIViewController {
         
         // tell raspberry pi to pour pint
         
-        // animation of app screen: 3 rectangles grow, button disappears
+        // animation of app screen and resets back to original
         animateGrow()
-        
-        // reset back to original layout - make rectangles back to original size. button appear. text appear
         
     }
     
+    // this function can be used to reset
+    func initialiseApp() {
+        //rectangles height initialised to half the length of the screen
+        self.heightConstraint.constant = self.view.frame.height/2
+    }
+    
     func animateGrow() {
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 1, animations: {
             self.heightConstraint.constant = self.view.frame.height
             self.view.layoutIfNeeded()
+        }) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                self.initialiseApp()
+            })
         }
     }
 }
