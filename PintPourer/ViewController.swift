@@ -24,7 +24,12 @@ class ViewController: UIViewController {
     
     // function for when Pour button is pressed
     @IBAction func pourButtonTapped(_ sender: Any) {
+        
         // tell raspberry pi to pour pint
+        
+        
+        
+        
         
         // animation of app screen and resets back to original
         self.animateGrow(height: self.view.frame.height, showButton: false) {
@@ -64,3 +69,9 @@ class ViewController: UIViewController {
         }
     }
 }
+
+
+// Things to change:
+// 1. Don't like the animation at the start when the app loads
+// 2. make the button only appear once the froth is back to its initial position. otherwise you can click the button as soon as it appears and it doesn't have opportunity to return
+// 3. Change the wait time so it corresponds with how much time it takes to pour a beer
