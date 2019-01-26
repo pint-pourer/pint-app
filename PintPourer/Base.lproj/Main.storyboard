@@ -49,12 +49,27 @@
                                     <action selector="pourButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qxl-s0-qWN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Froth" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-wG-9ON">
+                                <rect key="frame" x="0.0" y="312" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5A7-wG-9ON" secondAttribute="height" multiplier="15:8" id="6tA-KV-kaZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pints" translatesAutoresizingMaskIntoConstraints="NO" id="YEw-hQ-Sf9">
+                                <rect key="frame" x="50" y="44" width="275" height="220"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YEw-hQ-Sf9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="88V-KO-bZk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YEw-hQ-Sf9" secondAttribute="trailing" constant="50" id="8GO-jg-s3J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d6l-xZ-jOx" secondAttribute="trailing" id="JaB-Gi-oDt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rsg-HU-84I" secondAttribute="bottom" constant="100" id="MgO-j1-g4z"/>
+                            <constraint firstItem="d6l-xZ-jOx" firstAttribute="top" secondItem="5A7-wG-9ON" secondAttribute="centerY" id="P1C-LT-uCi"/>
+                            <constraint firstItem="YEw-hQ-Sf9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Pne-bT-ERV"/>
                             <constraint firstItem="rsg-HU-84I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q8F-se-YB5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5A7-wG-9ON" secondAttribute="trailing" id="Y9r-ZG-yvh"/>
+                            <constraint firstItem="5A7-wG-9ON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gXk-51-5Z1"/>
                             <constraint firstAttribute="bottom" secondItem="d6l-xZ-jOx" secondAttribute="bottom" id="jYb-Uz-MP8"/>
                             <constraint firstItem="d6l-xZ-jOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vYY-Go-FzR"/>
                         </constraints>
@@ -71,6 +86,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Froth" width="774" height="590"/>
+        <image name="Pints" width="440" height="220"/>
         <image name="Pour Button" width="283" height="283"/>
     </resources>
 </document>
