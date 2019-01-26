@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet private var heightConstraint: NSLayoutConstraint!
     @IBOutlet private var pourButton: UIButton!
+    @IBOutlet private var pouringText: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class ViewController: UIViewController {
         // set background colour: self.view.backgroundColor = Color Literal
         self.view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.7254901961, blue: 0.462745098, alpha: 1)
         
-        self.initialiseApp()
+        self.resetLayout()
     }
     
     // function for when Pour button is pressed
@@ -28,28 +29,32 @@ class ViewController: UIViewController {
         // animation of app screen and resets back to original
         self.animateGrow(height: self.view.frame.height, showButton: false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.initialiseApp()
+                self.resetLayout()
             })
         }
     }
     
     // this function can be used to reset
     func initialiseApp() {
+        self.pouringText.alpha = 0
+        self.resetLayout()
+    }
+    
+    func resetLayout() {
         self.animateGrow(height: self.view.frame.height / 2,
                          showButton: true,
                          callback: nil)
         // rectangles height initialised to half the length of the screen
         self.heightConstraint.constant = self.view.frame.height / 2
-        // initialise position of button
     }
     
     func animateGrow(height: CGFloat, showButton: Bool, callback: (() -> Void)?) {
         UIView.animate(withDuration: 0.3, animations: {
-            if showButton {
-                self.pourButton.alpha = 1
-            } else {
-                self.pourButton.alpha = 0
-            }
+            self.pourButton.alpha = showButton ? 1 : 0
+        })
+        
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveLinear, animations: {
+            self.pouringText.alpha = showButton ? 0 : 1
         })
         
         UIView.animate(withDuration: 1, animations: { self.heightConstraint.constant = height

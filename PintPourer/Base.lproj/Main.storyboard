@@ -58,6 +58,10 @@
                                     <constraint firstAttribute="width" secondItem="5A7-wG-9ON" secondAttribute="height" multiplier="15:8" id="6tA-KV-kaZ"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pouring" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-hQ-yVf">
+                                <rect key="frame" x="45" y="377" width="285" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -78,6 +82,7 @@
                     <connections>
                         <outlet property="heightConstraint" destination="XXG-pN-eHq" id="GwN-Y1-FDE"/>
                         <outlet property="pourButton" destination="rsg-HU-84I" id="yDf-ki-20j"/>
+                        <outlet property="pouringText" destination="vsK-hQ-yVf" id="t8l-CO-w6L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,5 +94,6 @@
         <image name="Froth" width="774.5" height="590"/>
         <image name="Pints" width="440" height="220"/>
         <image name="Pour Button" width="125" height="125"/>
+        <image name="Pouring" width="570" height="270"/>
     </resources>
 </document>
