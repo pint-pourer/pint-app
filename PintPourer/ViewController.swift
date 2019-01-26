@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
    
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pourButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,13 @@ class ViewController: UIViewController {
     
     // this function can be used to reset
     func initialiseApp() {
+        
         //rectangles height initialised to half the length of the screen
         self.heightConstraint.constant = self.view.frame.height/2
+        
+        // initialise position of button
+        
+        
     }
     
     func animateGrow() {
@@ -42,7 +48,7 @@ class ViewController: UIViewController {
             self.heightConstraint.constant = self.view.frame.height
             self.view.layoutIfNeeded()
         }) { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.initialiseApp()
             })
         }

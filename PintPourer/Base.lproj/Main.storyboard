@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,41 +15,46 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PintPourer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-HU-84I" userLabel="PourButton">
-                                <rect key="frame" x="107" y="293" width="107" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-xZ-jOx" userLabel="3Rectangles">
+                                <rect key="frame" x="0.0" y="412" width="375" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-kx-Fxy">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="400"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.6705882352941176" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jth-qN-h2e">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="400"/>
+                                        <color key="backgroundColor" red="0.95686274509803915" green="0.55686274509803924" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-7c-18Y">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="400"/>
+                                        <color key="backgroundColor" red="0.88235294117647056" green="0.39215686274509803" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="XXG-pN-eHq"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-HU-84I" userLabel="PourButton">
+                                <rect key="frame" x="137.66666666666666" y="578" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="QLy-Yh-NEX"/>
+                                    <constraint firstAttribute="width" constant="100" id="q9d-sE-6qz"/>
+                                </constraints>
                                 <state key="normal" image="Pour Button"/>
                                 <connections>
                                     <action selector="pourButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qxl-s0-qWN"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-xZ-jOx" userLabel="3Rectangles">
-                                <rect key="frame" x="0.0" y="268" width="320" height="300"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-kx-Fxy">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="300"/>
-                                        <color key="backgroundColor" red="0.97647058823529409" green="0.6705882352941176" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jth-qN-h2e">
-                                        <rect key="frame" x="106.5" y="0.0" width="107" height="300"/>
-                                        <color key="backgroundColor" red="0.95686274509803915" green="0.55686274509803924" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-7c-18Y">
-                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="300"/>
-                                        <color key="backgroundColor" red="0.88235294117647056" green="0.39215686274509803" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="XXG-pN-eHq"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d6l-xZ-jOx" secondAttribute="trailing" id="JaB-Gi-oDt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rsg-HU-84I" secondAttribute="bottom" constant="100" id="MgO-j1-g4z"/>
+                            <constraint firstItem="rsg-HU-84I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q8F-se-YB5"/>
                             <constraint firstAttribute="bottom" secondItem="d6l-xZ-jOx" secondAttribute="bottom" id="jYb-Uz-MP8"/>
                             <constraint firstItem="d6l-xZ-jOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vYY-Go-FzR"/>
                         </constraints>
@@ -57,11 +62,12 @@
                     </view>
                     <connections>
                         <outlet property="heightConstraint" destination="XXG-pN-eHq" id="GwN-Y1-FDE"/>
+                        <outlet property="pourButton" destination="rsg-HU-84I" id="yDf-ki-20j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="26.408450704225352"/>
+            <point key="canvasLocation" x="60" y="25.862068965517242"/>
         </scene>
     </scenes>
     <resources>
