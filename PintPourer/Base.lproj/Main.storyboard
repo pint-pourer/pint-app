@@ -18,11 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oQU-11-9Gq" userLabel="Background">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.72549019607843135" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-HU-84I" userLabel="PourButton">
                                 <rect key="frame" x="134" y="393" width="107" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,12 +28,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="oQU-11-9Gq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AxX-KC-5hu"/>
-                            <constraint firstAttribute="bottom" secondItem="oQU-11-9Gq" secondAttribute="bottom" id="I48-iV-3G4"/>
-                            <constraint firstItem="oQU-11-9Gq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v9S-N4-MGD"/>
-                            <constraint firstAttribute="trailing" secondItem="oQU-11-9Gq" secondAttribute="trailing" id="wXo-Cc-025"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
