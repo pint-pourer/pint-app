@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+   
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +25,17 @@ class ViewController: UIViewController {
         // tell raspberry pi to pour pint
         
         // animation of app screen
+        animateGrow()
         
         // make the button unresponsive for a period of time so that clicking won't trigger an action
         
-        
     }
     
-
+    func animateGrow() {
+        UIView.animate(withDuration: 1) {
+            self.heightConstraint.constant = self.view.frame.height
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
