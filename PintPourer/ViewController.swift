@@ -12,51 +12,101 @@ class ViewController: UIViewController {
     @IBOutlet private var heightConstraint: NSLayoutConstraint!
     @IBOutlet private var pourButton: UIButton!
     @IBOutlet private var pouringText: UIImageView!
+    @IBOutlet private var pintsText: UIImageView!
+    @IBOutlet private var pintsTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set background colour: self.view.backgroundColor = Color Literal
         self.view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.7254901961, blue: 0.462745098, alpha: 1)
         
-        self.resetLayout()
+        /* Wait half a second. */
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            /* Animate Pints text from center into correct position. */
+            self.animatePintsText()
+            /* Move drink bars up to middle of the view. */
+            self.animateBarsHeight(height: self.view.frame.height / 2, callback: nil)
+        })
+        
+        /* After everything else is in place, fade in the button. */
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
+            self.animateButton(show: true)
+        })
     }
     
-    // function for when Pour button is pressed
+    /* Event handler for Pour button press. */
     @IBAction func pourButtonTapped(_ sender: Any) {
-        // tell raspberry pi to pour pint
+        /* TODO: Hit AWS Endpoint. */
         
-        // animation of app screen and resets back to original
-        self.animateGrow(height: self.view.frame.height, showButton: false) {
+        /* Run Pouring animation and then reset layout. */
+        self.animateGrow(height: self.view.frame.height, showButton: false, delayButtonAnimation: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.resetLayout()
             })
         }
     }
     
-    // this function can be used to reset
-    func initialiseApp() {
-        self.pouringText.alpha = 0
-        self.resetLayout()
-    }
-    
+    /* Reset layout after pouring animation. */
     func resetLayout() {
         self.animateGrow(height: self.view.frame.height / 2,
                          showButton: true,
+                         delayButtonAnimation: true,
                          callback: nil)
-        // rectangles height initialised to half the length of the screen
         self.heightConstraint.constant = self.view.frame.height / 2
     }
     
-    func animateGrow(height: CGFloat, showButton: Bool, callback: (() -> Void)?) {
+    /* Pouring animation. */
+    func animateGrow(height: CGFloat, showButton: Bool, delayButtonAnimation: Bool = false, callback: (() -> Void)?) {
+        self.changePintsTextOpacity(show: showButton, delay: showButton)
+        
+        self.animateButton(show: showButton, delay: delayButtonAnimation)
+        
+        self.animatePouringText(show: !showButton)
+        
+        self.animateBarsHeight(height: height, callback: callback)
+    }
+    
+    func changePintsTextOpacity(show: Bool, delay: Bool) {
+        if delay {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.pintsText.alpha = show ? 1 : 0
+                })
+            })
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.pintsText.alpha = show ? 1 : 0
+            })
+        }
+    }
+    
+    func animatePintsText() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.pourButton.alpha = showButton ? 1 : 0
+            self.pintsTop.constant = self.view.frame.height / 20
         })
-        
+    }
+    
+    func animateButton(show: Bool, delay: Bool = false) {
+        if show && delay {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.pourButton.alpha = show ? 1 : 0
+                })
+            })
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.pourButton.alpha = show ? 1 : 0
+            })
+        }
+    }
+    
+    func animatePouringText(show: Bool) {
         UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveLinear, animations: {
-            self.pouringText.alpha = showButton ? 0 : 1
+            self.pouringText.alpha = show ? 1 : 0
         })
-        
+    }
+    
+    func animateBarsHeight(height: CGFloat, callback: (() -> Void)?) {
         UIView.animate(withDuration: 1, animations: { self.heightConstraint.constant = height
             self.view.layoutIfNeeded()
         }) { _ in
