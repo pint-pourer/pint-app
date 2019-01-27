@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     /* Event handler for Pour button press. */
     @IBAction func pourButtonTapped(_ sender: Any) {
         /* TODO: Hit AWS Endpoint. */
+        self.hitEndpoint()
         
         /* Run Pouring animation and then reset layout. */
         self.animateGrow(height: self.view.frame.height, showButton: false, delayButtonAnimation: true) {
@@ -44,6 +45,19 @@ class ViewController: UIViewController {
                 self.resetLayout()
             })
         }
+    }
+    
+    /* Trigger the Pour endpoint. */
+    func hitEndpoint() {
+        let url = URL(string: "http://51.140.181.184:8000/pour")!
+        
+        let task = URLSession.shared.dataTask(with: url) { _, _, error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        task.resume()
     }
     
     /* Reset layout after pouring animation. */
@@ -58,11 +72,8 @@ class ViewController: UIViewController {
     /* Pouring animation. */
     func animateGrow(height: CGFloat, showButton: Bool, delayButtonAnimation: Bool = false, callback: (() -> Void)?) {
         self.changePintsTextOpacity(show: showButton, delay: showButton)
-        
         self.animateButton(show: showButton, delay: delayButtonAnimation)
-        
         self.animatePouringText(show: !showButton)
-        
         self.animateBarsHeight(height: height, callback: callback)
     }
     
@@ -87,7 +98,7 @@ class ViewController: UIViewController {
     }
     
     func animateButton(show: Bool, delay: Bool = false) {
-        if show && delay {
+        if show, delay {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                 UIView.animate(withDuration: 0.3, animations: {
                     self.pourButton.alpha = show ? 1 : 0
